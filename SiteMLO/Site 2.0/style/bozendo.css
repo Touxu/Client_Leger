@@ -1,0 +1,117 @@
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    float: left;
+}
+
+nav ul li {
+  float: left;
+  list-style: none;
+  padding: 0px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    display: block;
+    color: #C0C0C0;
+    text-align: center;
+    padding: 14px 16px;
+
+      
+     width: 230px;
+     -moz-transition: all .5s; 
+     -webkit-transition: all .5s; 
+     -o-transition: all .5s; 
+     transition: all .5s;
+     line-height: 20px;
+    
+}
+
+nav ul li a.active {background-color: #54B6A8;}
+
+nav ul li a:hover {
+  background: #54B6A8;
+  -moz-transition: all .5s; 
+    -webkit-transition: all .5s; 
+    -o-transition: all .5s; 
+    transition: all .5s;
+}
+
+
+
+nav a:link, nav a:visited 
+{
+   padding:20px 40px 4px 10px;
+   float:left;
+   width:auto;
+   border-right:1px solid #42432d;
+   text-decoration:none;
+   font: bold 1em/1em Arial, Helvetica, sans-serif;
+   text-transform:uppercase;
+}
+
+
+/**********/
+
+body 
+{
+    margin : 8px;
+   background-image:url(..//images/souris.jpg);
+   font-size: large;
+   font-family: verdana;
+}
+
+p
+{ 
+  font-family: Arial, Verdana, sans-serif;
+}
+table
+
+{
+
+    border-collapse: collapse;
+
+}
+
+td, th /* Mettre une bordure sur les td ET les th */
+
+{
+
+    border: 1px solid black;
+
+}
+
+/************* ANNONCE ***************************/
+div 
+{
+  text-align:center;
+  display: inline;
+
+}
+  
+div.annonce 
+{
+   border: 2px solid black;
+   border-radius: 10px;
+   padding: 5px;
+   margin: 10px;
+   box-shadow: 0px 0px 3px black  ; 
+
+  float: left;
+
+  background-color:#C0C0C0;
+
+}
+
+div td, th.annonce {
+  border: 2px solid black;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 3px;
+}
+

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style/bozendo.css">
+  <link rel="stylesheet" href="style/formulaire.css">
+  <title>Formulaire</title>
+</head>
+
+<body>
+
+
+  <h2>Demande publication d'une petite annonce</h2>
+
+  <form class="formulaire" id="monForm" name="monForm" action="annonce.php" method="post">
+    <fieldset>
+      <legend>Vos coordonées</legend>
+
+      <table>
+        <tr>
+          <td width="33%">
+            <label for="sexe">Civilité :</label>
+            <select id="sexe">
+               <option value="1">M.</option>
+               <option value="2">Mme.</option>
+               </select>
+          </td>
+          <td width="16%">Nom :</td>
+          <td width="16%"> <input type="text" id="nom" size="auto" maxlength="20" placeholder="Votre nom ?" required> </td>
+          <td width="16%">Prénom :</td>
+          <td> <input type="text" id="prenom" size="auto" maxlength="auto" placeholder="Votre prénom ?"> </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td width="16%">Numéro de téléphone: </td>
+          <td width="16%"> <input type="text" id="tel" size="auto" maxlength="20" placeholder="Votre tel ?" onblur="validateTel()">
+            <span id="etoiltel" style="color: #D8000C; "></span>
+          </td>
+          <td>Adresse électronique : </td>
+          <td> <input type="text" id="mail" size="auto" maxlength="20" placeholder="Votre mail ?" required onblur="validateEmail()">
+            <span id="etoilemail" style="color: #D8000C; "></span>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <p id="resultTel" style="color: #D8000C; background-color: #f18973; "></p>
+    <p id="resultMail" style="color: #D8000C; background-color: #f18973; "></p>
+
+    <fieldset>
+      <legend>Détail de l'annonce</legend>
+
+      <input type="text" id="titreannonce" size="50" maxlength="55" placeholder="Titre de l'annonce"> <br>
+      <textarea name="zoneTexte" id="zonetexte" rows="8" cols="80" onfocus="effacer()" onblur="paseffacer()">Saisir le détail de votre petite annonce ici</textarea>
+
+      <p> Information(s) à diffuser dans l'annonce ? (vous devez cocher une ou plusieurs cases)</p>
+      <input type="checkbox" id="casetel" value="1">
+      <label for="tel">Téléphone</label> <br>
+      <input type="checkbox" id="casemail" value="2">
+      <label for="mail">Adresse Mail</label> <br>
+      <input type="checkbox" id="caseautre" value="3" onclick="other()">
+      <label for="caseautre" id="lblAutre">Autre</label> <br> <br>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Newsletter</legend>
+
+      <p>Souhaitez-vous recevoir des informations de notre part par mail?
+        <input type="radio" name="nl" id="yes" value="yes">
+        <label for="yes">Oui</label>
+        <input type="radio" name="nl" id="no" value="no">
+        <label for="yes">Non</label> </p>
+
+    </fieldset>
+
+    <span id="finalMsg"></span>
+
+    <input type="button" id="send" value="Enregistrer votre saisie" onclick="fctSend()">
+    <input type="reset" id="reset" value="Réinitialiser votre saisie">
+  </form>
+
+  <script type="text/javascript">
+    function fctSend() {
+      var messageFinal;
+      if (document.getElementById('nom').value == '' || document.getElementById('mail').value == '')
+      {
+      messageFinal = 'Toutes les informations concernant vos coordonnées sont requises.';
+      }
+      else if (document.getElementById('casetel').checked && document.getElementById('tel').value == '')
+      {
+      messageFinal = 'Vous devez renseigner votre numéro de téléphone si vous souhaitez le difuser.';
+      }
+      else if (validateEmail == false)
+      {
+      messageFinal = 'Les informations suivies de "*" sont invalides.';
+      }
+      else if (document.getElementById('titreannonce').value == '' || (document.getElementById('zonetexte').value == 'Saisir le détail de votre petite annonce ici' ||
+       document.getElementById('zonetexte').value == ''))
+      {
+      messageFinal = 'Votre annonce doit posséder un titre et un détail.';
+      }
+      else 
+      {  
+          var auMoinsUneCaseCoche = false;
+          if (document.getElementById('casetel').checked == true) auMoinsUneCaseCoche = true;
+          if (document.getElementById('casemail').checked == true) auMoinsUneCaseCoche = true;
+          if (document.getElementById('caseautre').checked == true) auMoinsUneCaseCoche = true;
+          
+          if (auMoinsUneCaseCoche == false) 
+          {
+            messageFinal = 'Vous devez cocher au moins une case.';
+          }
+          else {
+            {
+              var auMoinsUneCaseCoche = false;
+              if (document.getElementById('yes').checked == true) auMoinsUneCaseCoche = true;
+              if (document.getElementById('no').checked == true) auMoinsUneCaseCoche = true;
+              if (auMoinsUneCaseCoche == false) messageFinal = 'Vous devez cocher au moins une case pour la newsletter.';
+              else 
+              {
+                messageFinal = '';
+                document.getElementById('monForm').submit();
+              }
+            }
+          }
+        
+      }
+
+
+      document.getElementById('finalMsg').innerHTML =
+        '<p id = "resultTel" style = "color: #D8000C; background-color: #f18973; " >' +
+        messageFinal + '</p>';
+    }
+
+    function effacer() {
+      document.getElementById('zonetexte').innerHTML = '';
+    }
+
+    function paseffacer() {
+      if (document.getElementById('zonetexte').innerHTML == '')
+        document.getElementById('zonetexte').innerHTML = 'Saisir le détail de votre petite annonce ici';
+    }
+
+    function validateTel() {
+      var re = /^\d{10}$/;
+      var isGood = re.test(document.getElementById('tel').value);
+      if (document.getElementById('tel').value == '') {
+        document.getElementById('resultTel').innerHTML =
+          (document.getElementById('tel').value + ' veuillez entrer un numéro de telephone ');
+      } else {
+        if (!isGood) {
+          document.getElementById('resultTel').innerHTML =
+            (document.getElementById('tel').value + ' n\'est pas un numéro de télephone valide ');
+          document.getElementById('etoiltel').innerHTML = '*';
+        } else {
+          document.getElementById('resultTel').innerHTML = '';
+          document.getElementById('etoiltel').innerHTML = '';
+        }
+      }
+    }
+
+    function validateEmail() {
+      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      var isGood = re.test(document.getElementById('mail').value);
+
+      if (document.getElementById('mail').value == '') {
+        document.getElementById('resultMail').innerHTML =
+          (document.getElementById('mail').value + ' veuillez entrer une adresse mail valide');
+          isGood = false;
+      } else {
+        if (!isGood) {
+          document.getElementById('resultMail').innerHTML =
+            (document.getElementById('mail').value + ' n\'est pas une adresse email valide ');
+          document.getElementById('etoilemail').innerHTML = '*';
+        } else {
+          document.getElementById('resultMail').innerHTML = '';
+          document.getElementById('etoilemail').innerHTML = '';
+        }
+      }
+
+      return isGood;
+    }
+
+    function other() {
+      if (caseautre.checked) {
+        lblAutre.innerHTML = '<input type="text" id="txtAutre" onblur="fctExit()"/> ';
+        txtAutre.focus();
+      }
+    }
+
+    function fctExit() {
+      if (txtAutre.value != '') lblAutre.innerHTML = txtAutre.value;
+      else {
+        document.getElementById('caseautre').checked = false;
+        lblAutre.innerHTML = 'Autre';
+      }
+    }
+  </script>
+</body>
+
+</html>

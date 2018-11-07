@@ -1,0 +1,25 @@
+table tbody tr td {
+  border: 0px;
+}
+
+fieldset {
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+input, textarea {
+border-radius: 5px;
+}
+
+table,
+th,
+td {
+  border: 0px;
+  border-collapse: collapse;
+  padding: 5px;
+  margin: 5px;
+}

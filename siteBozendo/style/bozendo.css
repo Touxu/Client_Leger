@@ -1,0 +1,170 @@
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  float: left;
+}
+
+nav ul li {
+  float: left;
+  list-style: none;
+  padding: 0px;
+}
+
+nav ul li a, input[type=button], input[type=submit], input[type=reset], a.stylebouton {
+  text-decoration: none;
+  display: block;
+  color: #C0C0C0;
+  text-align: center;
+  padding: 14px 16px;
+  width: 230px;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+  line-height: 20px;
+}
+
+input[type=button], input[type=submit], input[type=reset], a.stylebouton {
+  background-color: #333;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: #C0C0C0;
+  text-decoration: none;
+  display: block;
+  color: #C0C0C0;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+nav ul li a.active {
+  background-color: #54B6A8;
+  color: black;
+}
+
+nav ul li a:hover, input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, a.stylebouton:hover {
+  background: #54B6A8;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+  color: black;
+}
+
+nav a:link, nav a:visited {
+  padding: 20px 40px 4px 10px;
+  float: left;
+  width: auto;
+  border-right: 1px solid #42432d;
+  text-decoration: none;
+  font: bold 1em/1em Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+/**********/
+
+body {
+  margin: 8px;
+  background-image: url(..//images/fond.jpg);
+  font-size: large;
+  font-family: verdana;
+}
+
+p {
+  font-family: Arial, Verdana, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th
+/* Mettre une bordure sur les td ET les th */
+
+  {
+  border: 1px solid black;
+}
+
+/************* ANNONCE ***************************/
+
+div {
+  text-align: center;
+  display: inline;
+}
+
+div.annonce {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  box-shadow: 0px 0px 3px black;
+  float: left;
+  background-color: #C0C0C0;
+}
+
+div td, th.annonce {
+  border: 2px solid black;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 3px;
+}
+
+/************* GALLERIE ***************************/
+
+ul.gallerie li {
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  list-style: none;
+}
+
+ul.gallerie li:nth-child(4n) {
+  clear: left;
+}
+
+ul.gallerie li a {
+  display: block;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin-top: 0px;
+  margin-left: 0px;
+  border: 0px solid rgba(0, 0, 0, 0.7);
+  transition-property: width, height, margin, z-index, border;
+  transition-duration: 0.4s;
+}
+
+ul.gallerie li a:hover {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  margin-top: -56px;
+  margin-left: -56px;
+  z-index: 100;
+  border: 6px solid rgba(0, 0, 0, 0.7);
+}
+
+ul.gallerie li a img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  z-index: 20;
+  transition-property: width, height, z-index;
+  transition-duration: 0.4s;
+}
+
+ul.gallerie li a:hover img {
+  width: 400px;
+  height: 400px;
+  z-index: 100;
+}

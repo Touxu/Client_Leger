@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style/bozendo.css">
+    <link rel="stylesheet" href="style/formulaire.css">
+    <title></title>
+  </head>
+  <body>
+
+    <nav>
+			<ul>
+  				 <li ><a class="active" href="index.html">Accueil</a></li>
+ 				 <li><a  href="sport.html">Présentation du sport</a></li>
+ 				 <li><a href="ligue.html">Présentation de la ligue</a></li>
+ 				 <li><a href="annonce.html">Petites annonces</a></li>
+ 				 <li><a href="..//index.html">Site MLO</a></li>
+			</ul>
+		</nav>
+    <br><br>
+
+    <h2>Demande publication d'une petite annonce</h2>
+
+    <form class="formulaire" action="" method="">
+      <fieldset>
+       <legend>Vos coordonées</legend>
+
+      <table>
+        <tr>
+          <td>
+               <label for="sexe">Civilité :</label>
+               <select id="sexe">
+               <option value="1">M.</option>
+               <option value="2">Mme.</option>
+               </select>
+         </td>
+          <td>Nom :</td>
+          <td> <input type="text" id="nom" size="15" maxlength="20" placeholder="Votre nom ?" required> </td>
+          <td>Prénom :</td>
+          <td> <input type="text" id="prenom" size="15" maxlength="20" placeholder="Votre prénom ?"> </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Numéro de téléphone: </td>
+          <td> <input type="text" id="tel" size="15" maxlength="20" placeholder="Votre tel ?"> </td>
+          <td>Adresse électronique :</td>
+          <td> <input type="text" id="mail" size="15" maxlength="20" placeholder="Votre mail ?" required> </td>
+        </tr>
+    </table>
+  </fieldset>
+
+  <fieldset>
+   <legend>Détail de l'annonce</legend>
+
+    <input type="text" id="titreannonce" size="50" maxlength="55" placeholder="Titre de l'annonce"> <br>
+    <textarea name="zoneTexte" rows="8  " cols="80">Saisir le détail de votre petite annonce ici</textarea>
+
+    <p> Information(s) à diffuser dans l'annonce ? (vous devez cocher une ou plusieurs cases)</p>
+    <input type="checkbox" id="casetel" value="1">
+    <label for="tel">Téléphone</label> <br>
+    <input type="checkbox" id="casemail" value="2">
+    <label for="mail">Adresse Mail</label> <br>
+    <input type="checkbox" id="caseautre" value="3">
+    <label for="autre">Autre</label> <br> <br>
+
+  </fieldset>
+
+  <fieldset>
+   <legend>Newsletter</legend>
+
+    <p>Souhaitez-vous recevoir des informations de notre part par mail?
+    <input type="radio" name="nl" id="yes" value="yes">
+    <label for="yes">Oui</label>
+    <input type="radio" name="nl" id="no" value="no">
+    <label for="yes">Non</label> </p>
+
+  </fieldset>
+
+    <input type="submit" id="send" value="Enregistrer votre saisie">
+    <input type="reset" id="reset" value="Réinitialiser votre saisie">
+
+    </form>
+
+  </body>
+</html>

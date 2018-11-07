@@ -1,0 +1,106 @@
+
+/* Corection */
+
+/* Barre pied de page */
+footer
+{
+     position: fixed; 
+     margin-top: 50px;
+     bottom: 20px;
+     background-color: red;
+     color: yellow;
+     font-style: italic;
+     text-align: center;
+     width:100%;
+}
+
+/*nav bar*/
+nav ul 
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: red;
+
+}
+
+nav li
+{
+    float: left;
+    list-style-type: none;
+}
+
+nav li a
+{
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover
+{
+    background: darkred;
+    color: black;
+}
+
+nav .active 
+{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+nav image
+{
+    height: 50px;
+    width: 100px;
+}
+
+/*image*/
+.ligue
+{
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    max-width: 300px;
+    height: 200px;
+    border: 1px solid darkred;
+    position: relative;
+}
+
+.image
+{
+    display: block;
+}
+
+.overlay
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease; 
+    background-color: darkred;
+}
+
+.Ligue:hover .overlay
+{
+    opacity: 1;
+}
+
+.texte
+{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
